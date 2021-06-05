@@ -101,7 +101,7 @@ app.layout = html.Div([
             id='diveces-pie'
         )
     ], style={"columnCount": 2})
-], style={"backgroundColor": "Lavender"})
+], style={"backgroundColor": "Lavender", "borderRadius": "20px", "padding": "5px"})
 
 
 @app.callback(
@@ -226,6 +226,11 @@ def update_figures(start_date_selected, end_date_selected, social_networks_selec
             "name": "Total Visits",  "year_month": "Month"
         }
     )
+    # Change graph background color to transparent
+    total_visit_fig.update_layout({
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
+    })
 
     total_visit_social_network_fig = px.line(
         df_by_month_social_networks,
@@ -236,6 +241,11 @@ def update_figures(start_date_selected, end_date_selected, social_networks_selec
             "name": "Total Visits",  "year_month": "Month"
         }
     )
+    # Change graph background color to transparent
+    total_visit_social_network_fig.update_layout({
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
+    })
 
     world_map_fig = px.choropleth(
         df_country,
@@ -247,6 +257,11 @@ def update_figures(start_date_selected, end_date_selected, social_networks_selec
             'name': 'Total Visits'
         }
     )
+    # Change graph background color to transparent
+    world_map_fig.update_layout({
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
+    })
 
     devices_pie_fig = px.pie(
         df_devices,
@@ -256,6 +271,11 @@ def update_figures(start_date_selected, end_date_selected, social_networks_selec
             'name': 'Total Visits'
         }
     )
+    # Change graph background color to transparent
+    devices_pie_fig.update_layout({
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)',
+    })
 
     return total_visit, facebook_visit, instagram_visit, twitter_visit, twitch_visit, total_visit_fig, total_visit_social_network_fig, world_map_fig, devices_pie_fig
 
