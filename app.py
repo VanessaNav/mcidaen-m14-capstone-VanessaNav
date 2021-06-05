@@ -18,7 +18,7 @@ df = pd.read_parquet('/tmp/social_network.parquet')
 
 # LAYOUT
 app.layout = html.Div([
-    html.H1('VanessaNav - Dashboard Social Networks', style={
+    html.H1('👩 VanessaNav - Dashboard Social Networks', style={
             "text-align": "center", "margin-top": "24px", "margin-bottom": "48px"}),
     html.Div([
         html.Label('Datetime Range'),
@@ -81,14 +81,16 @@ app.layout = html.Div([
             )
         ]),
     ], style={"columnCount": 5, 'textAlign': "center"}),
-    html.H3('Total Visits by Month', style={"textAlign": "center"}),
-    dcc.Graph(
-        id='total-visit-line'
-    ),
-    html.H3('Total Visits by Social Networks', style={"textAlign": "center"}),
-    dcc.Graph(
-        id='total-visit-social-networks-line'
-    ),
+    html.Div([
+        html.H3('Total Visits by Month', style={"textAlign": "center"}),
+        dcc.Graph(
+            id='total-visit-line'
+        ),
+        html.H3('Total Visits by Social Networks', style={"textAlign": "center"}),
+        dcc.Graph(
+            id='total-visit-social-networks-line'
+        ),
+    ], style={"columnCount": 2, 'textAlign': "center"}),
     html.Div([
         html.H3('Total Visits by Country', style={"textAlign": "center"}),
         dcc.Graph(
@@ -99,7 +101,7 @@ app.layout = html.Div([
             id='diveces-pie'
         )
     ], style={"columnCount": 2})
-])
+], style={"backgroundColor": "Lavender"})
 
 
 @app.callback(
